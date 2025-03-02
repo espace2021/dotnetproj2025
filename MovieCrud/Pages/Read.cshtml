@@ -1,0 +1,46 @@
+﻿@page
+@model ReadModel
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using MovieCrud.Entity;
+@using Models;
+ 
+@{
+    ViewData["Title"] = "Movies";
+}
+ 
+<h1 class="bg-info text-white">Movies</h1>
+<a asp-page="Create" class="btn btn-secondary">Create a Movie</a>
+ 
+<table class="table table-sm table-bordered">
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Actors</th>
+    </tr>
+    @foreach (Movie m in Model.movieList)
+    {
+        <tr>
+            <td><img src=@m.Photo alt="photo" width="100" height="100"/></td>
+            <td>@m.Name</td>
+            <td>@m.Actors</td>
+        </tr>
+    }
+</table>
+ 
+@functions{
+    public class ReadModel : PageModel
+    {
+        private readonly IRepository<Movie> repository;
+        public ReadModel(IRepository<Movie> repository)
+        {
+            this.repository = repository;
+        }
+ 
+        public List<Movie> movieList { get; set; }
+ 
+        public async Task OnGet()
+        {
+            movieList = await repository.ReadAllAsync();
+        }
+    }
+}

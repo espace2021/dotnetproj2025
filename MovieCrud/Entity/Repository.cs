@@ -1,4 +1,5 @@
-﻿using MovieCrud.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieCrud.Models;
 
 namespace MovieCrud.Entity
 {
@@ -18,6 +19,11 @@ namespace MovieCrud.Entity
 
             context.Add(entity);
             await context.SaveChangesAsync();
+        }
+
+        public async Task<List<T>> ReadAllAsync()
+        {
+            return await context.Set<T>().ToListAsync();
         }
     }
 }
