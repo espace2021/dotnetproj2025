@@ -6,6 +6,6 @@
         Task<List<T>> ReadAllAsync();
         Task<T> ReadAsync(int id);
         Task UpdateAsync(T entity);
-
+        Task DeleteAsync(int id);
     }
 }

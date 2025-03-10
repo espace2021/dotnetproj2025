@@ -39,6 +39,15 @@ namespace MovieCrud.Entity
             context.Update(entity);
             await context.SaveChangesAsync();
         }
+        
+        public async Task DeleteAsync(int id)
+        {
+            var entity = await context.Set<T>().FindAsync(id);
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
 
+            context.Set<T>().Remove(entity);
+            await context.SaveChangesAsync();
+        }
     }
 }

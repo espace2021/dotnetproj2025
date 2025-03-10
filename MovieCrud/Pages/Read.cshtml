@@ -28,6 +28,12 @@
               <a class="btn btn-sm btn-primary" asp-page="Update" asp-route-id="@m.Id">
                     Update
                 </a>
+
+              <form asp-page-handler="Delete" asp-route-id="@m.Id" method="post">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+              </form>
             </td>
         </tr>
     }
@@ -48,5 +54,12 @@
         {
             movieList = await repository.ReadAllAsync();
         }
+
+          public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            await repository.DeleteAsync(id);
+            return RedirectToPage("Read", new { id = 1 });
+        }
     }
-}
+   }
+ 
