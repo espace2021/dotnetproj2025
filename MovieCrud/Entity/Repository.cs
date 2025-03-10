@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieCrud.Models;
+using System.Linq.Expressions;
 
 namespace MovieCrud.Entity
 {
@@ -22,8 +23,12 @@ namespace MovieCrud.Entity
         }
 
         public async Task<List<T>> ReadAllAsync()
+         {
+             return await context.Set<T>().ToListAsync();
+         }
+        public async Task<List<T>> ReadAllAsync(Expression<Func<T, bool>> filter)
         {
-            return await context.Set<T>().ToListAsync();
+            return await context.Set<T>().Where(filter).ToListAsync();
         }
         public async Task<T> ReadAsync(int id)
         { 
