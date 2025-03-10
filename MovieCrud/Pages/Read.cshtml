@@ -16,6 +16,7 @@
         <th>Photo</th>
         <th>Name</th>
         <th>Actors</th>
+        <th>Actions</th>
     </tr>
     @foreach (Movie m in Model.movieList)
     {
@@ -23,6 +24,11 @@
             <td><img src=@m.Photo alt="photo" width="100" height="100"/></td>
             <td>@m.Name</td>
             <td>@m.Actors</td>
+              <td>
+              <a class="btn btn-sm btn-primary" asp-page="Update" asp-route-id="@m.Id">
+                    Update
+                </a>
+            </td>
         </tr>
     }
 </table>

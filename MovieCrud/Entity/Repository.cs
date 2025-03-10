@@ -25,5 +25,20 @@ namespace MovieCrud.Entity
         {
             return await context.Set<T>().ToListAsync();
         }
+        public async Task<T> ReadAsync(int id)
+        { 
+            return await context.Set<T>().FindAsync(id);
+        }
+        public async Task UpdateAsync(T entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            context.Update(entity);
+            await context.SaveChangesAsync();
+        }
+
     }
 }

@@ -4,5 +4,8 @@
     {
         Task CreateAsync(T entity);
         Task<List<T>> ReadAllAsync();
+        Task<T> ReadAsync(int id);
+        Task UpdateAsync(T entity);
+
     }
 }
