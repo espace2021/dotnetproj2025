@@ -58,3 +58,12 @@ D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\obj\Debug\net6.0\MovieCrud.dll
 D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\obj\Debug\net6.0\ref\MovieCrud.dll
 D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\obj\Debug\net6.0\MovieCrud.pdb
 D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\obj\Debug\net6.0\MovieCrud.genruntimeconfig.cache
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Sandra\DotNet\Projet\MovieCrud\MovieCrud\obj\Debug\net6.0\MovieCrud.MvcApplicationPartsAssemblyInfo.cs
