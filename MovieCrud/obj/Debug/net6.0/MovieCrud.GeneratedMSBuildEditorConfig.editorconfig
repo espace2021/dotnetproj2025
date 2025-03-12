@@ -19,12 +19,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Sandra/DotNet/Projet/MovieCrud/MovieCrud/Pages/CreateReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Sandra/DotNet/Projet/MovieCrud/MovieCrud/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Sandra/DotNet/Projet/MovieCrud/MovieCrud/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sandra/DotNet/Projet/MovieCrud/MovieCrud/Pages/ListReviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdFJldmlld3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Sandra/DotNet/Projet/MovieCrud/MovieCrud/Pages/Privacy.cshtml]

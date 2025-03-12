@@ -1,0 +1,31 @@
+﻿@page
+@model ListReviewsModel
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<h1 class="bg-info text-white">Reviews</h1>
+<a asp-page="CreateReview" class="btn btn-secondary">Create a Review</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Comment</th>
+            <th>Rating</th>
+            <th>Reviewer Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model.Reviews)
+        {
+            <tr>
+                <td>@review.Movie?.Name</td>
+                <td>@review.Comment</td>
+                <td>@review.Rating</td>
+                <td>@review.ReviewerName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
