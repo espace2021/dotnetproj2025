@@ -52,7 +52,7 @@ public class CreateReviewModel : PageModel
 
         _context.Review.Add(NewReview);
         _context.SaveChanges();
-        return RedirectToPage("Index");
+        return RedirectToPage("ListReviews", new { id = 1 });
     }
 
 }

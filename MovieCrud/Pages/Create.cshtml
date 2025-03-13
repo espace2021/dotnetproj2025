@@ -29,28 +29,3 @@
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
  
-@functions {
-    public class CreateModel : PageModel
-    {
-        private readonly IRepository<Movie> repository;
-        public CreateModel(IRepository<Movie> repository)
-        {
-            this.repository = repository;
-        }
- 
-        [BindProperty]
-        public Movie movie { get; set; }
- 
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
- 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (ModelState.IsValid)
-                await repository.CreateAsync(movie);
-            return Page();
-        }
-    }
-}
