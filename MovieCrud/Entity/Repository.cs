@@ -54,5 +54,20 @@ namespace MovieCrud.Entity
             context.Set<T>().Remove(entity);
             await context.SaveChangesAsync();
         }
+
+        public async Task<List<T>> ReadAllIncludeAsync(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = context.Set<T>();
+
+            // Appliquer tous les Includes fournis
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.ToListAsync();
+        }
+
+
     }
 }

@@ -1,23 +1,25 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MovieCrud.Entity;
 using MovieCrud.Models;
-using Microsoft.EntityFrameworkCore;
 
-public class ListReviewsModel : PageModel
+namespace MovieCrud.Pages
 {
-    private readonly MovieContext _context;
-
-    public ListReviewsModel(MovieContext context)
+    public class ListReviewsModel : PageModel
     {
-        _context = context;
-    }
+        private readonly IRepository<Review> repository;
+        public ListReviewsModel(IRepository<Review> repository)
+        {
+            this.repository = repository;
+        }
 
-    // Vous pouvez utiliser Include pour charger le film associé
-    public List<Review> Reviews { get; set; } = new();
+        public List<Review> ReviewList { get; set; }
 
-    public void OnGet()
-    {
-        Reviews = _context.Review
-            .Include(r => r.Movie)
-            .ToList();
+        public async Task OnGet()
+        {
+            ReviewList = await repository.ReadAllIncludeAsync(r => r.Movie);
+
+        }
+
     }
 }

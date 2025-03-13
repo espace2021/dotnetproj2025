@@ -1,27 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieCrud.Entity;
 using MovieCrud.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class CreateReviewModel : PageModel
 {
-    private readonly MovieContext _context;
+    private readonly IRepository<Movie> _movieRepository;
+    private readonly IRepository<Review> _reviewRepository;
 
-    public CreateReviewModel(MovieContext context)
+    public CreateReviewModel(IRepository<Movie> movieRepository, IRepository<Review> reviewRepository)
     {
-        _context = context;
+        _movieRepository = movieRepository;
+        _reviewRepository = reviewRepository;
     }
 
     [BindProperty]
-    public Review NewReview { get; set; } = new();  
+    public Review NewReview { get; set; } = new();
 
     public List<SelectListItem> Movies { get; set; } = new();
 
-    public void OnGet()
+    public async Task OnGet()
     {
-        Movies = _context.Movie
+        var movies = await _movieRepository.ReadAllAsync();
+        Movies = movies
             .Select(m => new SelectListItem
             {
                 Value = m.Id.ToString(),
@@ -32,14 +37,14 @@ public class CreateReviewModel : PageModel
         NewReview = new Review();
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPost()
     {
-        Console.WriteLine("MovieId received: " + NewReview.MovieId); // Debug
+        Console.WriteLine("MovieId received: " + NewReview.MovieId);
 
         if (!ModelState.IsValid)
         {
-            // Recharge la liste des films
-            Movies = _context.Movie
+            var movies = await _movieRepository.ReadAllAsync();
+            Movies = movies
                 .Select(m => new SelectListItem
                 {
                     Value = m.Id.ToString(),
@@ -50,10 +55,7 @@ public class CreateReviewModel : PageModel
             return Page();
         }
 
-        _context.Review.Add(NewReview);
-        _context.SaveChanges();
+        await _reviewRepository.CreateAsync(NewReview);
         return RedirectToPage("ListReviews", new { id = 1 });
     }
-
 }
-
